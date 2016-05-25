@@ -1,6 +1,7 @@
 package it.uniroma3.model;
 
 public class Amministratore {
+	// variabili d'istanza
 	private String nome, cognome, username, password;
 	private long id;
 	
