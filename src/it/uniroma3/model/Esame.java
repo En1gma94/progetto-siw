@@ -93,8 +93,4 @@ public class Esame {
 				+ ", tipologia_esame=" + tipologia_esame 
 				+ ", medico=" + medico + "]";
 	}
-	
-	
-	
-
 }
