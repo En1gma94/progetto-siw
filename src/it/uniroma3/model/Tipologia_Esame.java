@@ -1,8 +1,22 @@
 package it.uniroma3.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Tipologia_Esame {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String nome, descrizione;
+	
+	@Column(nullable = false)
+	private String nome;
+	
+	@Column(length = 2000)
+	private String descrizione;
+	
 	private float prezzo;
 
 	public long getId() {

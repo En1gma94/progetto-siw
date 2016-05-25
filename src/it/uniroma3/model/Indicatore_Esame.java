@@ -1,8 +1,18 @@
 package it.uniroma3.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Indicatore_Esame {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String nome, valore;
+	
+	@Column(nullable = false)
+	private String nome;
 	
 	public long getId() {
 		return id;
@@ -16,11 +26,4 @@ public class Indicatore_Esame {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getValore() {
-		return valore;
-	}
-	public void setValore(String valore) {
-		this.valore = valore;
-	}
-	
 }

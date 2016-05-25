@@ -1,6 +1,7 @@
 package it.uniroma3.model;
 
 public class Clinica {
+	
 	private String nome;
 
 	public String getNome() {

@@ -1,8 +1,24 @@
 package it.uniroma3.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Medico {
-	private String nome, cognome, specializzazione;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+
+	@Column(nullable = false)
+	private String nome;
+	
+	@Column(nullable = false)
+	private String cognome;
+	
+	@Column(nullable = false)
+	private String specializzazione;
 	
 	public long getId() {
 		return id;

@@ -1,9 +1,27 @@
 package it.uniroma3.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Amministratore {
-	// variabili d'istanza
-	private String nome, cognome, username, password;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@Column(nullable = false)
+	private String nome;
+	
+	@Column(nullable = false)
+	private String cognome;
+	
+	@Column(nullable = false)
+	private String username;
+	
+	@Column(nullable = false)
+	private String password;
 	
 	public String getNome() {
 		return nome;
