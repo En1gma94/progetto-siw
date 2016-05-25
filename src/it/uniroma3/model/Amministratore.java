@@ -1,9 +1,29 @@
 package it.uniroma3.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Amministratore {
-	// variabili d'istanza
-	private String nome, cognome, username, password;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@Column(nullable = false)
+	private String nome;
+	
+	@Column(nullable = false)
+	private String cognome;
+	
+	@Column(nullable = false)
+	private String username;
+	
+	@Column(nullable = false)
+	private String password;
 	
 	public String getNome() {
 		return nome;
@@ -35,4 +55,31 @@ public class Amministratore {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	@Override
+	public int hashCode() {
+		return this.getNome().hashCode() + 
+				this.getCognome().hashCode() + 
+				this.getPassword().hashCode() + 
+				this.getUsername().hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Amministratore a = (Amministratore)obj;
+		return this.nome.equals(a.getNome()) 
+				&& this.cognome.equals(a.getCognome())
+				&& this.username.equals(a.getUsername()) 
+				&& this.password.equals(a.getPassword());
+	}
+	@Override
+	public String toString() {
+		return "Amministratore [nome=" + nome 
+				+ ", cognome=" + cognome 
+				+ ", username=" + username 
+				+ ", password=" + password + "]";
+	}
+	
+	
+	
 }
