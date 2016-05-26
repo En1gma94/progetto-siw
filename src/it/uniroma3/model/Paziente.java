@@ -1,10 +1,15 @@
 package it.uniroma3.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+@Entity
 public class Paziente {
 	
 	@Id
@@ -17,11 +22,9 @@ public class Paziente {
 	@Column(nullable = false)
 	private String cognome;
 	
-	@Column(nullable = false)
-	private String username;
+	@OneToMany(mappedBy = "paziente")
+	private List<Esame> esami; 
 	
-	@Column(nullable = false)
-	private String password;
 	
 	public String getNome() {
 		return nome;
@@ -41,16 +44,29 @@ public class Paziente {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
+	public List<Esame> getEsami() {
+		return esami;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setEsami(List<Esame> esami) {
+		this.esami = esami;
 	}
-	public String getPassword() {
-		return password;
+	
+	@Override
+	public int hashCode() {
+		return this.getNome().hashCode() + 
+				this.getCognome().hashCode();
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	
+	@Override
+	public boolean equals(Object obj) {
+		Paziente a = (Paziente)obj;
+		return this.nome.equals(a.getNome()) 
+				&& this.cognome.equals(a.getCognome());
+	}
+	@Override
+	public String toString() {
+		return "Paziente [nome=" + nome 
+				+ ", cognome=" + cognome 
+				+ "]";
 	}
 }
