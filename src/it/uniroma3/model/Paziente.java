@@ -25,11 +25,6 @@ public class Paziente {
 	@OneToMany(mappedBy = "paziente")
 	private List<Esame> esami; 
 	
-	
-	@OneToMany(mappedBy = "paziente")
-	private List<Esame> esami; 
-	
-	
 	public String getNome() {
 		return nome;
 	}
@@ -47,12 +42,6 @@ public class Paziente {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public List<Esame> getEsami() {
-		return esami;
-	}
-	public void setEsami(List<Esame> esami) {
-		this.esami = esami;
 	}
 	
 	@Override
@@ -78,32 +67,5 @@ public class Paziente {
 	}
 	public void setEsami(List<Esame> esami) {
 		this.esami = esami;
-	}
-	
-	@Override
-	public int hashCode() {
-		return this.getNome().hashCode() + 
-				this.getCognome().hashCode() + 
-				this.getPassword().hashCode() + 
-				this.getUsername().hashCode();
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		Paziente a = (Paziente)obj;
-		return this.nome.equals(a.getNome()) 
-				&& this.cognome.equals(a.getCognome())
-				&& this.username.equals(a.getUsername()) 
-				&& this.password.equals(a.getPassword());
-	}
-	@Override
-	public String toString() {
-		return "Paziente [nome=" + nome 
-				+ ", cognome=" + cognome 
-				+ ", username=" + username 
-				+ ", password=" + password
-				+ "]";
-	}
-	
-	
+	}	
 }
