@@ -39,12 +39,6 @@ public class Amministratore {
 	}
 	
 	@Override
-    public boolean equals(Object obj) {
-		Amministratore amministratore = (Amministratore)obj;
-        return this.getNome().equals(amministratore.getNome()) && this.getCognome().equals(amministratore.getCognome());
-    }
-	
-	@Override
 	public int hashCode() {
         return this.getNome().hashCode() + this.getCognome().hashCode();
     }
