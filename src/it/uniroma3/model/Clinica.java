@@ -16,6 +16,4 @@ public class Clinica {
 	public String toString() {
 		return "Clinica [nome=" + nome + "]";
 	}
-	
-	
 }

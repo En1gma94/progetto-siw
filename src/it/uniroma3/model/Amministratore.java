@@ -19,12 +19,6 @@ public class Amministratore {
 	@Column(nullable = false)
 	private String cognome;
 	
-	@Column(nullable = false)
-	private String username;
-	
-	@Column(nullable = false)
-	private String password;
-	
 	public String getNome() {
 		return nome;
 	}
@@ -37,18 +31,6 @@ public class Amministratore {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public long getId() {
 		return id;
 	}
@@ -56,30 +38,18 @@ public class Amministratore {
 		this.id = id;
 	}
 	
+	public boolean equals(Object obj) {
+		Amministratore amministratore = (Amministratore)obj;
+        return this.getNome().equals(amministratore.getNome()) && this.getCognome().equals(amministratore.getCognome());
+    }
+	
 	@Override
 	public int hashCode() {
-		return this.getNome().hashCode() + 
-				this.getCognome().hashCode() + 
-				this.getPassword().hashCode() + 
-				this.getUsername().hashCode();
-	}
+        return this.getNome().hashCode() + this.getCognome().hashCode();
+    }
 	
-	@Override
-	public boolean equals(Object obj) {
-		Amministratore a = (Amministratore)obj;
-		return this.nome.equals(a.getNome()) 
-				&& this.cognome.equals(a.getCognome())
-				&& this.username.equals(a.getUsername()) 
-				&& this.password.equals(a.getPassword());
-	}
 	@Override
 	public String toString() {
-		return "Amministratore [nome=" + nome 
-				+ ", cognome=" + cognome 
-				+ ", username=" + username 
-				+ ", password=" + password + "]";
+		return "Amministratore [nome=" + nome + ", cognome=" + cognome + "]";
 	}
-	
-	
-	
 }
