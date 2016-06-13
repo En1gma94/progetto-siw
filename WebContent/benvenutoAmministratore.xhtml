@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f= "http://java.sun.com/jsf/core">
+<head>
+<meta charset="UTF-8"></meta>
+<title>benvenuto amministratore</title>
+</head>
+<link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<body style="background-color:rgb(247, 234, 187)">
+<f:event listener="#{UtenteController.isAmministratore}" type="preRenderView" />
+<nav class="navbar navbar-dark bg-primary">
+<a class="navbar-brand" style="color:white;">Clinica</a>
+<ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="benvenutoAmministratore.xhtml" style="color:white;">Home <span class="sr-only"></span></a>
+    </li>
+    </ul>
+<h:form>
+<h:commandButton class="btn btn-primary btn-lg" value="Logout" action="#{UtenteController.logoutUtente}"/>
+</h:form>
+</nav>
+<H1>BENVENUTO #{UtenteController.amministratore.nome} 
+              #{UtenteController.amministratore.cognome}</H1>
+<BR />
+<BR />
+<p align="center">
+	<a class="btn btn-info" href="creaEsame.xhtml">Crea Esame</a>
+</p>
+<BR />
+<BR />
+<p align="center">
+	<a class="btn btn-info" href="registrazioneAmministratore.xhtml">Registra un altro amministratore</a>
+</p>
+<BR />
+<BR />
+<p align="center">
+	<a class="btn btn-info" href="esamiMedico.xhtml">Vedi gli esami di un medico</a>
+</p>
+</body>
+</html>

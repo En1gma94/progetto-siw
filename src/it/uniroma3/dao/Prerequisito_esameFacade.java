@@ -9,10 +9,10 @@ import javax.persistence.PersistenceContext;
 import it.uniroma3.model.Prerequisito_esame;
 
 
-@Stateless(name="facade")
+@Stateless(name="prerequisito_facade")
 public class Prerequisito_esameFacade {
 
-	@PersistenceContext(unitName = "progetto-siw")
+	@PersistenceContext(unitName = "clinica-unit")
 	private EntityManager em;
 
 

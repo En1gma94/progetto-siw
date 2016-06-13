@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f= "http://java.sun.com/jsf/core">
+<head>
+<meta charset="UTF-8"></meta>
+<link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>dettaglio tipologia esame</title>
+</head>
+<body style="background-color:rgb(247, 234, 187)">
+<BR />
+<h1 align="center"> I dettagli dell'esame richiesto sono i seguenti</h1>
+<BR />
+<table class="table table-striped">
+    <tbody>
+      <tr>
+        <td><strong>nome</strong></td>
+        <td>#{consultaTipologieBean.nome}</td>
+      </tr>
+      <tr>
+        <td><strong>prezzo</strong></td>
+        <td>#{consultaTipologieBean.prezzo} €</td>
+      </tr>
+      <tr>
+        <td><STRONG>descrizione</STRONG></td>
+        <td>#{consultaTipologieBean.descrizione}</td>
+      </tr>
+   </tbody>
+</table>
+	<BR />
+		<BR />
+		<BR />
+		<BR />
+		<BR />
+	<p align ="center">
+		<a class="btn btn-success" href="home.xhtml">Torna alla home</a>
+	</p>
+</body>
+</html>

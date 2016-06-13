@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Prerequisito_esame {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long id;
 	
 	@Column(nullable = false)
@@ -19,21 +19,33 @@ public class Prerequisito_esame {
 	@Column(length = 2000)
 	private String descrizione;
 
+	public Prerequisito_esame(String nome, String descrizione) {
+		this.nome = nome;
+		this.descrizione = descrizione;
+	}
+	
+	public Prerequisito_esame() {}
+	
 	public long getId() {
 		return id;
 	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	public String getNome() {
 		return nome;
 	}
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	public String getDescrizione() {
 		return descrizione;
 	}
+	
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
@@ -48,10 +60,10 @@ public class Prerequisito_esame {
 		Prerequisito_esame a = (Prerequisito_esame)obj;
 		return this.nome.equals(a.getNome());
 	}
+	
 	@Override
 	public String toString() {
 		return "Prerequisito_esame [nome=" + nome + ", descrizione=" + descrizione + "]";
 	}
 
-	
 }

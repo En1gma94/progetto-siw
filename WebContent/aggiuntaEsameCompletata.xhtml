@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f= "http://java.sun.com/jsf/core">
+<head>
+<meta charset="UTF-8"></meta>
+<link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>Inserimento esame completato</title>
+</head>
+<body style="background-color: ECE2E2">
+<f:event listener="#{UtenteController.isAmministratore}" type="preRenderView" />
+<BR />
+<H1>I dettagli dell'esame inserito sono i seguenti:</H1>
+<BR />
+<table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>data di prenotazione</td>
+        <td><h:outputText value="#{CreaEsameBean.esame.data_prenotazione}"> <f:convertDateTime dateStyle="full" timeZone="CET" type="date" /> </h:outputText></td>
+      </tr>
+      <tr>
+        <td>data di effettuazione</td>
+        <td><h:outputText value="#{CreaEsameBean.esame.data_effettuazione}"> <f:convertDateTime dateStyle="full" timeZone="CET" type="date" /> </h:outputText></td>
+      </tr>
+      <tr>
+        <td>nome paziente</td>
+        <td> #{CreaEsameBean.esame.paziente.nome}</td>
+      </tr>
+       <tr>
+        <td>cognome paziente</td>
+        <td>#{CreaEsameBean.esame.paziente.cognome}</td>
+      </tr>
+      <tr>
+        <td>codice fiscale paziente</td>
+        <td>#{CreaEsameBean.esame.paziente.codicefiscale}</td>
+      </tr>
+      <tr>
+        <td>esame da effettuare</td>
+        <td>  #{CreaEsameBean.esame.tipologia_esame.nome}</td>
+      </tr>
+       <tr>
+        <td>costo dell'esame</td>
+        <td>  #{CreaEsameBean.esame.prezzo} €</td>
+      </tr>
+       <tr>
+        <td>nome medico</td>
+        <td> #{CreaEsameBean.esame.medico.nome}</td>
+      </tr>
+      <tr>
+        <td>cognome medico</td>
+        <td>#{CreaEsameBean.esame.medico.cognome}</td>
+      </tr>
+    </tbody>
+  </table>
+		<BR />
+		<BR />
+		<BR />
+		<BR />
+		<BR />
+	<p align ="center">
+		<a class="btn btn-success" href="benvenutoAmministratore.xhtml">Torna alla pagina di benvenuto</a>
+	</p>
+</body>
+</html>
