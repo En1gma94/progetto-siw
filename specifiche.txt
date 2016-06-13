@@ -1,0 +1,98 @@
+CASI D'USO:
+
+-UC1 : CONSULTA OFFERTA
+attore primario: utente non registrato (utente occasionale)
+Scenario principale: 
+-L'utente occasionale vuole consultare l'elenco delle tipologie di esame che possono essere effettuate presso la clinica;
+-Il sistema mostra l'elenco delle tipologie degli esami;
+-L'utente sceglie una tipologia e ne richiede i dettagli;
+-Il sistema mostra i dettagli della tipologia richiesta;
+-L'utente ripete i passi un numero non specificato di volte;
+
+Precondizioni: nessuna;
+
+
+-UC2 : CREA ESAME
+attore principale: amministratore
+Scenario principale:
+-L'amministratore vuole creare un esame per un paziente
+-L'amministratore inserisce la tipologia dell'esame che intende creare, il codice fiscale del paziente, il nome e il cognome del medico che effettuerà l'esame e la data di effettuazione;
+-Il sistema registra l'esame, la data di prenotazione e mostra un riepilogo dell'esame creato;
+-L'amministratore ripete la creazione un numero imprecisato di volte;
+
+Estensioni:
+-L'amministratore inserisce il nome o il cognome di un medico non valido e il sistema non registra l'esame;
+-L'amministratore inserisce il codice fiscale di un paziente non registrato e il sistema non registra l'esame;
+-L'ammnistratore inserisce un formato di data non valido e il sistema non registra l'esame;
+-L'amminstratore inserisce una tipologia di esame inesistente e il sistema non registra l'esame;
+
+Precondizioni: 
+-L'amministratore è identificato e autenticato;
+
+
+-UC3 : CONSULTA RISULTATI PROPRIO ESAME
+attore principale: paziente
+Scenario principale:
+-Il paziente vuole consultare i risultati di un proprio esame;
+-Il sistema mostra l'elenco degli esami effettuati dal paziente, con rispettivi dettagli;
+-Il paziente sceglie uno degli esami e ne richiede i risultati;
+-Il sistema mostra l'elenco degli indicatori previsti per la tipologia dell'esame con i rispettivi valori;
+-Il paziente ripete i passi un numero imprecisato di volte;
+
+Precondizioni: 
+-Il paziente è identificato e autenticato;
+
+
+-UC4 : CONSULTA ESAMI EFFETTUATI DA UN MEDICO
+attore principale: amministratore
+Scenario principale:
+-L'amministratore vuole consultare gli esami effettuati da un medico;
+-L'amministratore inserisce il nome e il cognome del medico;
+-Il sistema mostra l'elenco degli esami effettuati da un medico;
+-L'amministratore ripete i passi un numero imprecisato di volte;
+
+Estensioni:
+-L'amministratore inserisce nome e cognome di un medico non presente e il sistema non mostra gli esami richiesti;
+
+Precondizioni: 
+-L'amministratore è identificato e autenticato;
+
+
+-UC5: REGISTRAZIONE PAZIENTE
+attore principale: utente non registrato (utente occasionale)
+Scenario principale:
+-L'utente vuole registrarsi come paziente;
+-L'utente inserisce i suoi dati: nome, cognome, codice fiscale, username e password;
+-Il sistema registra l'utente come paziente e mostra un riepologo dei dati inseriti;
+
+Estensioni:
+-L'utente inserisce un username già utilizzato da qualcun'altro e il sistema non registra il paziente;
+
+Precondizioni: nessuna;
+
+
+-UC6: REGISTRAZIONE AMMINISTRATORE
+attore principale: amministratore
+Scenario principale:
+-L'Amministratore vuole registrare una persona come amministratore;
+-L'amministratore inserisce nome, cognome, codice fiscale, username e password della perosna;
+-Il sistema registra la persona come amministratore e mostra un riepologo dei dati inseriti;
+
+Estensioni:
+-L'amministratore inserisce un username già utilizzato da qualcun'altro e il sistema non registra la persona;
+
+Precondizioni: 
+-L'amministratore è identificato e autenticato;
+
+
+-UC7: LOGIN
+attore principale: utente
+Scenario principale:
+-L'utente vuole autenticarsi (o come amministratore o come paziente);
+-L'utente inserisce username e password;
+-Il sistema controlla i dati inseriti e autentica l'utente;
+
+Estensioni: 
+-L'utente inserisce dati non validi e il sistema non autentica l'utente;
+
+Precondizioni: nessuna;
