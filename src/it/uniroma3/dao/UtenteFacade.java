@@ -5,14 +5,15 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import it.uniroma3.model.Utente;
 
 
-@Stateless(name="facade")
+@Stateless(name="utente_facade")
 public class UtenteFacade {
 
-	@PersistenceContext(unitName = "progetto-siw")
+	@PersistenceContext(unitName = "clinica-unit")
 	private EntityManager em;
 
 
@@ -36,11 +37,26 @@ public class UtenteFacade {
 		em.merge(p);
         return p;
 	}
+	
+	public Boolean checkPassword(Utente utente, String password) {
+		return utente.getPassword().equals(password);
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Utente> findAll() {
-		List<Utente> result = em.createNamedQuery("Utente.findAll").getResultList();
+		List<Utente> result = em.createNamedQuery("Utente.findAllUsers").getResultList();
 		return result;
 	}
-
+	
+	public Utente getUtente(String username, String password) {
+		try {
+			Utente utente = new Utente();
+			TypedQuery<Utente> userQuery = em.createQuery("SELECT u FROM Utente u WHERE u.username = :username AND u.password = :password", Utente.class).setParameter("username", username).setParameter("password", password);
+			utente = userQuery.setParameter("username", username).setParameter("password", password).getSingleResult();
+			return utente;
+		}
+		catch(Exception e){
+			return null;
+		}
+	}
 }

@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 public class Utente {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long id;
 	
 	@Column(unique = true, nullable=false)
@@ -31,6 +31,13 @@ public class Utente {
 	@OneToOne
 	@JoinColumn(nullable = true)
 	private Paziente paziente;
+	
+	public Utente() {} 
+	
+	public Utente(String username, String password) {
+		this.username = username;
+		this.password = password;
+		} 
 
 	public String getUsername() {
 		return username;
@@ -91,4 +98,5 @@ public class Utente {
 				+ ", amministratore=" + amministratore 
 				+ ", paziente=" + paziente + "]";
 	}
+
 }

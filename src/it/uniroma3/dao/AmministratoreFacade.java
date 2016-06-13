@@ -9,10 +9,10 @@ import javax.persistence.PersistenceContext;
 import it.uniroma3.model.Amministratore;
 
 
-@Stateless(name="facade")
+@Stateless(name="amministratore_facade")
 public class  AmministratoreFacade {
 
-	@PersistenceContext(unitName = "progetto-siw")
+	@PersistenceContext(unitName = "clinica-unit")
 	private EntityManager em;
 
 
