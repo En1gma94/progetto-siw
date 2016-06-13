@@ -9,10 +9,10 @@ import javax.persistence.PersistenceContext;
 import it.uniroma3.model.Indicatore_Esame;
 
 
-@Stateless(name="facade")
+@Stateless(name="indicatore_facade")
 public class  Indicatore_EsameFacade {
 
-	@PersistenceContext(unitName = "progetto-siw")
+	@PersistenceContext(unitName = "clinica-unit")
 	private EntityManager em;
 
 

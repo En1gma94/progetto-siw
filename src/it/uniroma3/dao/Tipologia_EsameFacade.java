@@ -5,14 +5,15 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import it.uniroma3.model.Tipologia_Esame;
 
 
-@Stateless(name="facade")
+@Stateless(name="tipologia_facade")
 public class Tipologia_EsameFacade {
 
-	@PersistenceContext(unitName = "progetto-siw")
+	@PersistenceContext(unitName = "clinica-unit")
 	private EntityManager em;
 
 
@@ -39,8 +40,19 @@ public class Tipologia_EsameFacade {
 
 	@SuppressWarnings("unchecked")
 	public List<Tipologia_Esame> findAll() {
-		List<Tipologia_Esame> result = em.createNamedQuery("Tipologia_Esame.findAll").getResultList();
+		List<Tipologia_Esame> result = em.createNamedQuery("Tipologia_Esame.findAllTipologie").getResultList();
 		return result;
 	}
 
+	public Tipologia_Esame getTipologia(String nome) {
+		try {
+			Tipologia_Esame tipologia_Esame = new Tipologia_Esame();
+			TypedQuery<Tipologia_Esame> userQuery = em.createQuery("SELECT t FROM Tipologia_Esame t WHERE t.nome = :nome", Tipologia_Esame.class).setParameter("nome", nome);
+			tipologia_Esame = userQuery.setParameter("nome", nome).getSingleResult();
+			return tipologia_Esame;
+		}
+		catch(Exception e){
+			return null;
+		}
+	}
 }

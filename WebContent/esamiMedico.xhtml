@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f= "http://java.sun.com/jsf/core">
+<head>
+<meta charset="UTF-8"></meta>
+<link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	$('#formregister').validate({
+			rules : {
+			'formregister:username' : {
+				required : true,
+				minlength : 4,
+				maxlength : 10
+			},
+			'formregister:password' : {
+				required : true,
+				minlength : 4,
+				maxlength : 20
+			},
+			'formregister:nome' : {
+				required : true
+			},
+			'formregister:cognome' : {
+				required : true
+			}
+		},
+			messages : {
+			'formregister:username' : {
+				required : "Username obbligatorio",
+				minlength : "Username di almeno 4 caratteri",
+				maxlength : "Username di massimo 10 caratteri"
+			},
+			'formregister:password' : {
+				required : "Inserire una password",
+				minlength : "La password deve essere almeno di 4 caratteri",
+				maxlength : "Password di massimo 10 caratteri"
+			},
+			'formregister:nome' : {
+				required : "Nome obbligatorio"
+			},
+			'formregister:cognome' : {
+				required : "Cognome obbligatorio"
+			}
+		},
+	});
+});
+</script>
+<title>RicercaEsamiMedico</title>
+</head>
+<body style="background-color:rgb(247, 234, 187)">
+	<BR />
+<f:event listener="#{UtenteController.isAmministratore}" type="preRenderView" />
+<p align="center"><b><font color="darkred" style="font-size: 18px;"> Ricerca gli esami effettuati da un medico </font></b></p>
+	<BR />
+	<f:view>
+		<h:form id="formregister">
+			<table width="40%" border="1" align="center" style="background-color:rgb(252,250,139)">
+				<tr height="50">
+					<td valign="middle" align="middle">Nome</td>
+					<td align="middle">
+					<h:inputText
+							value="#{consultamedicoBean.nome}" id="nome" />
+					</td>
+				</tr>
+				<tr height="50">
+					<td valign="middle" align="middle">Cognome</td>
+					<td align="middle">
+						 <h:inputText
+							value="#{consultamedicoBean.cognome}" id="cognome" />
+					</td>
+				</tr>
+				<tr height="40">
+					<td colspan="2" align="center"><h:commandButton
+							value="Conferma" class="btn btn-warning"
+							action="#{consultamedicoBean.esamiMedico}" /></td>
+				</tr>
+			</table>
+			
+			<p align="center"> <b><font color="darkred">#{consultamedicoBean.risultatoErrore}</font></b></p>
+		</h:form>
+	</f:view>
+		<BR />
+		<BR />
+		<BR />
+		<BR />
+		<BR />
+	<p align ="center">
+		<a class="btn btn-success" href="benvenutoAmministratore.xhtml">Torna alla pagina di benvenuto</a>
+	</p>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f= "http://java.sun.com/jsf/core">
+<head>
+<meta charset="UTF-8"></meta>
+<link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title> Home</title>
+</head>
+<body style="background-color:rgb(247, 234, 187)">
+<h1>
+	<img src="images/home.png"/>
+	</h1>
+	<h2>
+		<BR />
+		<p align="center">
+			<a  href="login.xhtml">Login</a>
+		</p>
+		<BR />
+		<p align="center">
+			<a  href="registrazione.xhtml">Registrati</a>
+		</p>
+	</h2>
+	<BR />
+	<BR />
+	<h:form>
+    <p align ="center">
+    <h:commandButton class="btn btn-success" value="consulta esami" action="#{consultaTipologieBean.mostraTipologie}"/></p>
+</h:form>
+</body>
+</html>

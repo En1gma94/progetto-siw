@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f= "http://java.sun.com/jsf/core">
+<head>
+<meta charset="UTF-8"></meta>
+<link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>Risultati Esame</title>
+</head>
+<body style="background-color:rgb(247, 234, 187)">
+<f:event listener="#{UtenteController.isPaziente}" type="preRenderView" />
+<BR />
+<H1 align ="center">risultati dell'esame richiesto</H1>
+<BR />
+	<div class="container">
+				<table class="table table-striped">
+					<thead>
+      					 <tr>
+       						 <th>Indicatore</th>
+        					 <th>Valore</th>
+     					 </tr>
+					<ui:repeat value="#{UtenteController.risultati}" var="ris">
+					<tbody>
+						<tr>
+						<td><h:column>#{ris.indicatore_Esame.nome} </h:column></td>
+						<td><h:column>#{ris.valore} </h:column></td>
+						</tr>
+				</tbody>
+			</ui:repeat>
+			</thead>
+			</table>
+			</div>
+<BR />
+<BR />
+<p align ="center">
+<a class="btn btn-success" href="benvenutoPaziente.xhtml">Torna alla pagina di benvenuto</a>
+</p>
+</body>
+</html>

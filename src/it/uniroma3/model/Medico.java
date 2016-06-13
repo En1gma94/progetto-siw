@@ -1,9 +1,12 @@
 package it.uniroma3.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +16,7 @@ import javax.persistence.OneToMany;
 public class Medico {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long id;
 
 	@Column(nullable = false)
@@ -25,9 +28,20 @@ public class Medico {
 	@Column(nullable = false)
 	private String specializzazione;
 
-	@OneToMany(mappedBy = "medico")
+	@OneToMany(mappedBy = "medico",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Esame> esami;
 	
+	public Medico(String nome, String cognome, String specializzazione) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.specializzazione = specializzazione;
+		this.esami = new ArrayList<>();
+	}
+	
+	public Medico() {
+		this.esami = new ArrayList<>();
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -61,7 +75,10 @@ public class Medico {
 	}
 	
 	public List<Esame> getEsami() {
-		return esami;
+		if (this.esami==null){
+			this.esami = new ArrayList<>();
+		}
+		return this.esami;
 	}
 
 	public void setEsami(List<Esame> esami) {
@@ -90,5 +107,9 @@ public class Medico {
 				+ ", specializzazione=" + specializzazione + "]";
 	}
 	
+	public void stampaEsami() {
+		for (Esame e : this.esami)
+			System.out.println(e.getId());
+	}
 	
 }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f= "http://java.sun.com/jsf/core">
+<head>
+<meta charset="UTF-8"></meta>
+<link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>Esami effettuati</title>
+</head>
+<body style="background-color:rgb(247, 234, 187)">
+<f:event listener="#{UtenteController.isPaziente}" type="preRenderView" />
+<BR />
+<BR />
+<BR /> 
+<div>
+<h:form>
+			<div class="container">
+				<table class="table table-striped">
+					<thead>
+      					 <tr>
+       						 <th>Data Effettuazione</th>
+        					 <th>Data Prenotazione</th>
+        					 <th>Nome</th>
+        					 <th>Descrizione</th>
+        					 <th>Prezzo</th>
+        					 <th>Nome medico</th>
+        					 <th>Cognome medico</th>
+        					 <th>Consulta Risultati</th>
+     					 </tr>
+					<ui:repeat value="#{UtenteController.esami}" var="item">
+					<tbody>
+						<tr>
+						<td><h:outputText value="#{item.data_effettuazione}"> <f:convertDateTime dateStyle="full" timeZone="CET" type="date" /> </h:outputText></td>
+						<td><h:outputText value="#{item.data_prenotazione}"> <f:convertDateTime dateStyle="full" timeZone="CET" type="date" /> </h:outputText></td>
+						<td><h:column>#{item.tipologia_esame.nome} </h:column></td>
+						<td><h:column>#{item.tipologia_esame.descrizione} </h:column></td>
+						<td><h:column>#{item.prezzo} €</h:column></td>
+						<td><h:column>#{item.medico.nome} </h:column></td>
+						<td><h:column>#{item.medico.cognome} </h:column></td>
+						<td><h:column>
+					<h:commandButton value="mostra dettagli" class="btn btn-info"
+						action="#{UtenteController.mostraRisultati(item.id)}" />
+					</h:column></td>
+						</tr>
+				</tbody>
+			</ui:repeat>
+			</thead>
+			</table>
+			</div>
+		</h:form>
+		</div>
+<BR />
+<BR />
+<p align ="center">
+<a class="btn btn-success" href="benvenutoPaziente.xhtml">Torna alla pagina di benvenuto</a>
+</p>
+</body>
+</html>
