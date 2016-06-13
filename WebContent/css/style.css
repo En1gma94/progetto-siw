@@ -1,0 +1,20 @@
+label.error {
+	color: red;
+	align: middle;
+	display: block;
+}
+
+input.error {
+	border: 2px solid red;
+}
+
+span.error {
+	color: red;
+	align: middle;
+	display: block;
+}
+
+input.btn.btn-primary.btn-lg {
+	background-image: linear-gradient(to bottom,#F10707 0,#9E1616 100%);
+	border-color: rgba(128, 36, 36, 0);
+}

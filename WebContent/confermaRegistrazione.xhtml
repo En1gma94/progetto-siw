@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"></meta>
+<link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>Registrazione confermata</title>
+</head>
+<body style="background-color:rgb(247, 234, 187)">
+<H1>Registrazione effettuata con successo</H1>
+<BR />
+<p align="center"><b> i dati immessi sono i seguenti</b></p>
+<table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>nome</td>
+        <td>#{registrazioneutenteBean.nome}</td>
+      </tr>
+      <tr>
+        <td>cognome</td>
+        <td>#{registrazioneutenteBean.cognome}</td>
+      </tr>
+      <tr>
+        <td>codice fiscale</td>
+        <td>#{registrazioneutenteBean.codiceFiscale}</td>
+      </tr>
+       <tr>
+        <td>username</td>
+        <td>#{registrazioneutenteBean.username}</td>
+      </tr>
+      <tr>
+        <td>password</td>
+        <td>#{registrazioneutenteBean.password}</td>
+      </tr>
+    </tbody>
+</table>
+<BR />
+<BR />
+<p align="center">
+	<a class="btn btn-success" href="home.xhtml">Torna alla home</a>
+</p>
+</body>
+</html>
