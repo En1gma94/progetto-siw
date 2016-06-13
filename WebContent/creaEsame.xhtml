@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f= "http://java.sun.com/jsf/core">
+<head>
+<meta charset="UTF-8"></meta>
+<link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	$('#formregister').validate({
+			rules : {
+			'formregister:dataEffettuazione' : {
+				required : true,
+			},
+			'formregister:codiceFiscale' : {
+				required : true,
+			},
+			'formregister:tipologia' : {
+				required : true,
+			},
+			'formregister:nomeMedico' : {
+				required : true
+			},
+			'formregister:cognomeMedico' : {
+				required : true
+			}
+		},
+			messages : {
+			'formregister:dataEffettuazione' : {
+				required : "Inserire una data",
+			},
+			'formregister:codiceFiscale' : {
+				required : "Inserire il codice fiscale del paziente",
+			},
+			'formregister:tipologia' : {
+				required : "Tipologia obbligatoria"
+			},
+			'formregister:nomeMedico' : {
+				required : "Inserire il nome di un medico"
+			},
+			'formregister:cognomeMedico' : {
+				required : "Inserire il cognome di un medico"
+			}
+		},
+	});
+});
+</script>
+<title>Crea un esame</title>
+</head>
+<body style="background-color:rgb(247, 234, 187)">
+<f:event listener="#{UtenteController.isAmministratore}" type="preRenderView" />
+	<BR />
+	<f:view>
+	<p align="center"><b><font color="darkred" style="font-size: 18px;"> Inserisci i dati relativi all'esame da effettuare </font></b></p>
+	<BR />
+		<h:form id="formregister">
+			<table width="40%" border="1" align="center" style="background-color:rgb(252,250,139)">
+				<tr height="50">
+					<td valign="middle" align="middle">Data effettuazione</td>
+					<td align="middle">
+				   		 <h:inputText
+							value="#{CreaEsameBean.dataEffettuazione}" id="dataEffettuazione" />
+					</td>
+				</tr>
+				<tr height="50">
+					<td valign="middle" align="middle">Codice Fiscale Paziente</td>
+					<td align="middle">
+						 <h:inputText
+							value="#{CreaEsameBean.codiceFiscale}" id="codiceFiscale" />
+					</td>
+				</tr>
+				<tr height="50">
+					<td valign="middle" align="middle">Tipologia esame</td>
+					<td align="middle">
+						<h:inputText
+							value="#{CreaEsameBean.tipologia}" id="tipologia" />
+					</td>
+				</tr>
+				<tr height="50">
+					<td valign="middle" align="middle">Nome medico</td>
+					<td align="middle">
+						<h:inputText
+							value="#{CreaEsameBean.nomeMedico}" id="nomeMedico" />
+					</td>
+				</tr>
+				<tr height="50">
+					<td valign="middle" align="middle">Cognome medico</td>
+					<td align="middle">
+						<h:inputText
+							value="#{CreaEsameBean.cognomeMedico}" id="cognomeMedico" />
+					</td>
+				</tr>
+				<tr height="40">
+					<td colspan="2" align="center"><h:commandButton
+							value="Conferma" class="btn btn-warning"
+							action="#{CreaEsameBean.aggiungiEsame}" /></td>
+				</tr>
+			</table>
+			<p align="center"> <b><font color="darkred">#{CreaEsameBean.avvertimento}</font></b></p>
+		</h:form>
+	</f:view>
+		<BR />
+		<BR />
+		<BR />
+		<BR />
+		<BR />
+	<p align ="center">
+		<a class="btn btn-success" href="benvenutoAmministratore.xhtml">Torna alla pagina di benvenuto</a>
+	</p>
+</body>
+</html>
